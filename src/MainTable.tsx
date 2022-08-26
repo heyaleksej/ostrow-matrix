@@ -1,13 +1,8 @@
 import * as React from 'react';
-import Table from '@mui/material/Table';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
-import {SubTable} from "./Tables/SubTable";
 import {RowType} from "./Bll/store";
-
+import {RowTable} from "./Tables/RowTable";
+import {Paper, Table, TableBody, TableContainer, TableHead, TableRow} from "@mui/material";
+import TableCell from "@mui/material/TableCell";
 
 
 // function createRow(desc1: string, param1: string, param2: string, param3: string, param4: string, desc2: string) {
@@ -46,52 +41,68 @@ import {RowType} from "./Bll/store";
 
 type propsType = {
     tableId: string
+    title: string
     cells: RowType[]
-    changeCellValue1: (id: string, newValue: string | null, tableId: string) => void
-    changeCellValue2: (id: string, newValue: string | null, tableId: string) => void
-    changeCellValue3: (id: string, newValue: string | null, tableId: string) => void
-    changeCellValue4: (id: string, newValue: string | null, tableId: string) => void
+    changeCellValue1: (id: string, tableId: string) => void
+    changeCellValue2: (id: string, tableId: string) => void
+    changeCellValue3: (id: string, tableId: string) => void
+    changeCellValue4: (id: string, tableId: string) => void
 }
 
 
-export const MainTable = ({tableId, changeCellValue1, changeCellValue2, changeCellValue3, changeCellValue4, cells}: propsType) => {
-
+export const MainTable = ({
+                              title,
+                              tableId,
+                              changeCellValue1,
+                              changeCellValue2,
+                              changeCellValue3,
+                              changeCellValue4,
+                              cells
+                          }: propsType) => {
     return (
-        <TableContainer component={Paper}>
-            <Table sx={{minWidth: 700}} aria-label="spanning table">
+        <TableContainer sx={{maxWidth: '900px', padding: '40px'}}>
+            <Table sx={{background:'white', boxShadow: 'rgba(0, 0, 0, 0.25) 0px 28px 15px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px'}}>
                 <TableHead>
                     <TableRow>
-                        <TableCell>Достаточна невысокая частота</TableCell>
-                        <TableCell align="center" colSpan={4}>Поправка частоты</TableCell>
-                        <TableCell align="right"> Нужна высокая частота</TableCell>
+                        <TableCell sx={{fontWeight:'300', fontSize:'24px'}} align="center" colSpan={6}>
+                            {title}
+                        </TableCell>
+                    </TableRow>
+                    <TableRow sx={{borderBottom:'2px solid grey'}}>
+                        <TableCell colSpan={1} >Достаточна невысокая частота</TableCell>
+                        <TableCell colSpan={4} align="center">Поправка частоты</TableCell>
+                        <TableCell colSpan={1} align="right">Нужна высокая частота</TableCell>
                     </TableRow>
                 </TableHead>
-                {cells.map((m,index) => {
+                <TableBody>
+                    {cells.map((m, index) => {
 
-                    const onCellChangeHandler1 = (newValue: string | null) => {
-                        changeCellValue1(m.id, newValue, tableId);
-                    }
-                    const onCellChangeHandler2 = (newValue: string | null) => {
-                        changeCellValue2(m.id, newValue, tableId);
-                    }
-                    const onCellChangeHandler3 = (newValue: string | null) => {
-                        changeCellValue3(m.id, newValue, tableId);
-                    }
-                    const onCellChangeHandler4 = (newValue: string | null) => {
-                        changeCellValue4(m.id, newValue, tableId);
-                    }
-                        return <SubTable key={m.id}
-                                         row={cells[index]}
-                                         changeCellValue1={onCellChangeHandler1}
-                                         changeCellValue2={onCellChangeHandler2}
-                                         changeCellValue3={onCellChangeHandler3}
-                                         changeCellValue4={onCellChangeHandler4}/>
+                        const onCellChangeHandler1 = () => {
+                            changeCellValue1(m.id, tableId);
+                        }
+                        const onCellChangeHandler2 = () => {
+                            changeCellValue2(m.id, tableId);
+                        }
+                        const onCellChangeHandler3 = () => {
+                            changeCellValue3(m.id, tableId);
+                        }
+                        const onCellChangeHandler4 = () => {
+                            changeCellValue4(m.id, tableId);
+                        }
+                        return <RowTable
+                            key={m.id}
+                            row={cells[index]}
+                            changeCellValue1={onCellChangeHandler1}
+                            changeCellValue2={onCellChangeHandler2}
+                            changeCellValue3={onCellChangeHandler3}
+                            changeCellValue4={onCellChangeHandler4}/>
 
                     }
                 )
-                }
+                }</TableBody>
 
-                    </Table>
-                    </TableContainer>
-                    );
-                }
+            </Table>
+        </TableContainer>
+
+    );
+}

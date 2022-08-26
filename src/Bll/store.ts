@@ -1,5 +1,8 @@
-import {combineReducers, createStore} from 'redux'
+import {applyMiddleware, combineReducers, createStore} from 'redux'
+import thunkMiddleware from 'redux-thunk'
 import { tableReducer } from './table-reducer';
+
+
 
 export type RowType = {
     id:string
@@ -18,7 +21,7 @@ const rootReducer = combineReducers({
     // app: appReducer
 })
 // непосредственно создаём store
-export const store = createStore(rootReducer);
+export const store = createStore(rootReducer,applyMiddleware(thunkMiddleware));
 // определить автоматически тип всего объекта состояния
 export type AppRootStateType = ReturnType<typeof rootReducer>
 

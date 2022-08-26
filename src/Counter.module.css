@@ -1,0 +1,14 @@
+.wrapper{
+    display: flex;
+    position: fixed;
+    top: 0;
+    right: 0;
+    margin-right: 5%;
+    margin-top: 5%;
+    width: 20%;
+    height: 300px;
+    border-radius: 20px;
+    background: aliceblue;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;}
