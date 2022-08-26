@@ -3,6 +3,8 @@ import {useCallback} from "react";
 import {TableStateType, TablesType} from "./App";
 import s from './Counter.module.css'
 import {Button} from "@mui/material";
+import logo from "./logo/logo-transparent-2.gif";
+import { ButtonX } from "./assest/ButtonX";
 
 type propsType = {
     cells: TableStateType
@@ -77,13 +79,15 @@ export const Counter = ({cells}: propsType) => {
     }, [cells])
 
 
-  let result = sum1table() + sum2table() + sum3table()
+  let result = 3 + sum1table() + sum2table() + sum3table()
 
 
     return (
         <div className={s.wrapper}>
-            <h2>Result{' '}{result}</h2>
-            <Button type="button" onClick={()=>{window.location.reload()}}>Сбросить</Button>
+            <img className={s.logo} src={logo}/>
+            <div className={s.result}>Итоговая частота
+                для коммуникации с одним пользователем{' '}<div className={s.resultNum}>{result}</div></div>
+            <ButtonX name={'Cбросить'} onClick={()=>{window.location.reload()}}/>
         </div>
 
 

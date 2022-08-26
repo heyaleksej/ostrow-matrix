@@ -3,6 +3,7 @@ import './App.module.css';
 import {MainTable} from "./MainTable";
 import {AppRootStateType, RowType} from "./Bll/store";
 import {Counter} from "./Counter";
+import logo from './../src/logo/logo-transparent-2.gif'
 import s from './App.module.css'
 import {useDispatch, useSelector} from 'react-redux';
 import {update1CellAC, update2CellAC, update3CellAC, update4CellAC} from './Bll/table-reducer';
@@ -30,27 +31,11 @@ function App() {
     ]
 
 
-    function changeCellValue1(id: string, tableId: string) {
-        dispatch(update1CellAC(tableId, id))
+    const changeCellValue1 = (id: string, tableId: string) => dispatch(update1CellAC(tableId, id))
+    const changeCellValue2 = (id: string, tableId: string) => dispatch(update2CellAC(tableId, id))
+    const changeCellValue3 = (id: string, tableId: string) => dispatch(update3CellAC(tableId, id))
+    const changeCellValue4 = (id: string, tableId: string) => dispatch(update4CellAC(tableId, id))
 
-    }
-
-    function changeCellValue2(id: string, tableId: string) {
-        dispatch(update2CellAC(tableId, id))
-
-
-    }
-
-    function changeCellValue3(id: string, tableId: string) {
-        dispatch(update3CellAC(tableId, id))
-
-
-    }
-
-    function changeCellValue4(id: string, tableId: string) {
-        dispatch(update4CellAC(tableId, id))
-
-    }
 
     return (
         <>
@@ -67,7 +52,6 @@ function App() {
             )}
 
             <Counter cells={cells} tables={tables}/>
-
         </>
 
     );

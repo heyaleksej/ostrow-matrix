@@ -24,7 +24,7 @@ export const RowTable = ({
 
     const checkedCell = {
         border: '1px solid grey',
-        background: '#0c9ffa',
+        background: '#609eec',
         color: 'white',
         fontWeight: '900',
         fontSize: '30px',
@@ -75,7 +75,7 @@ export const RowTable = ({
                     {row.param4 ? row.param4 : '_'}
                 </p>
             </TableCell>
-            <TableCell align="center">{row.desc2}</TableCell>
+            <TableCell align="right">{row.desc2}</TableCell>
         </TableRow>
 
     )
