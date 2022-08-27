@@ -20,5 +20,10 @@ code {
         width: min-content;
         margin: auto;
     }
+}
 
+@media (min-width:600px) and (max-width: 930px) {
+    .cell {
+        margin: 0;
+    }
 }

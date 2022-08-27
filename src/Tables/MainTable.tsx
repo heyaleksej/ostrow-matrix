@@ -18,23 +18,26 @@ type propsType = {
 
 
 export const MainTable = memo(({
-                              title,
-                              tableId,
-                              changeCellValue1,
-                              changeCellValue2,
-                              changeCellValue3,
-                              changeCellValue4,
-                              cells
-                          }: propsType) => {
+                                   title,
+                                   tableId,
+                                   changeCellValue1,
+                                   changeCellValue2,
+                                   changeCellValue3,
+                                   changeCellValue4,
+                                   cells
+                               }: propsType) => {
 
     console.log('MainTable render')
     return (
         <TableContainer
             sx={{
-                maxWidth: '913px',
+                width: "65%",
                 padding: '40px 40px 40px 75px',
-                ['@media (max-width:911px)']: {
-                    padding: '40px 0 0 0', overflowX: "inherit"
+                ['@media (max-width:599px)']: {
+                    padding: '40px 0 0 0', width: "auto"
+                }, ['@media (min-width:600px) and (max-width: 930px)']: {
+                    padding: '40px', width: "auto",
+
                 }
             }}>
             <Table sx={{

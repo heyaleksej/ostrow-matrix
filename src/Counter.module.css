@@ -11,7 +11,7 @@
     background: linear-gradient(to top, #609eec 20%, #286794 50%, #10314d 80%);
     align-items: center;
     flex-direction: column;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0 54px 55px, rgba(0, 0, 0, 0.12) 0 -12px 30px, rgba(0, 0, 0, 0.12) 0 4px 6px, rgba(0, 0, 0, 0.17) 0 12px 13px, rgba(0, 0, 0, 0.09) 0 -3px 5px;
     justify-content: space-around;
 }
 
@@ -32,7 +32,7 @@
     font-family: "lato", sans-serif;
     font-weight: 900;
     text-align: center;
-    text-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    text-shadow: rgba(0, 0, 0, 0.25) 0 54px 55px, rgba(0, 0, 0, 0.12) 0 -12px 30px, rgba(0, 0, 0, 0.12) 0 4px 6px, rgba(0, 0, 0, 0.17) 0 12px 13px, rgba(0, 0, 0, 0.09) 0 -3px 5px;
 
 }
 
@@ -40,14 +40,15 @@
 @media (max-width: 913px) and (min-width: 600px){
     .wrapper {
         position: inherit;
+        width: -moz-fit-content;
         width: fit-content;
         height: 50%;
-        margin-left: auto;
-        margin-right: auto;
+        margin: auto;
         border-radius: 20px;
         align-items: center;
         flex-direction: column;
         justify-content: space-around;
+        margin-bottom: 30px;
     }
 
 }
