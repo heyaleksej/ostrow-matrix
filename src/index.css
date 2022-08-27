@@ -15,3 +15,10 @@ code {
 }
 
 
+@media (max-width: 599px) {
+    body {
+        width: min-content;
+        margin: auto;
+    }
+
+}

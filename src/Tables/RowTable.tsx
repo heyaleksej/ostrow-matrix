@@ -3,7 +3,7 @@ import TableCell from "@mui/material/TableCell";
 import * as React from "react";
 import {RowType} from "../Bll/store";
 import s from './RowTable.module.css'
-import {TableBody} from "@mui/material";
+import {memo} from "react";
 
 type TableRowItemPropsType = {
     row: RowType
@@ -14,7 +14,7 @@ type TableRowItemPropsType = {
 
 }
 
-export const RowTable = ({
+export const RowTable = memo(({
                              row,
                              changeCellValue1,
                              changeCellValue2,
@@ -31,24 +31,14 @@ export const RowTable = ({
         alignItems: 'center',
         verticalAlign: 'center',
         height: '30px',
-        width: '30px'
+        width: '30px',
+        padding:'10px'
     }
-    const cellStyle1 = row.param1 === '' ? {
-        border: '1px solid grey', height: '30px',
-        width: '30px'
-    } : checkedCell
-    const cellStyle2 = row.param2 === '' ? {
-        border: '1px solid grey', height: '30px',
-        width: '30px'
-    } : checkedCell
-    const cellStyle3 = row.param3 === '' ? {
-        border: '1px solid grey', height: '30px',
-        width: '30px'
-    } : checkedCell
-    const cellStyle4 = row.param4 === '' ? {
-        border: '1px solid grey', height: '30px',
-        width: '30px'
-    } : checkedCell
+    const baseCell ={border: '1px solid grey', height: '30px', width: '30px', padding:'10px'}
+    const cellStyle1 = row.param1 === '' ? baseCell : checkedCell
+    const cellStyle2 = row.param2 === '' ? baseCell : checkedCell
+    const cellStyle3 = row.param3 === '' ? baseCell : checkedCell
+    const cellStyle4 = row.param4 === '' ? baseCell : checkedCell
 
 
     return (
@@ -79,4 +69,4 @@ export const RowTable = ({
         </TableRow>
 
     )
-}
+})

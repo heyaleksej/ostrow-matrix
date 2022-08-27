@@ -3,6 +3,7 @@ import {RowType} from "../Bll/store";
 import {RowTable} from "./RowTable";
 import {Table, TableBody, TableContainer, TableHead, TableRow} from "@mui/material";
 import TableCell from "@mui/material/TableCell";
+import {memo} from "react";
 
 
 type propsType = {
@@ -16,7 +17,7 @@ type propsType = {
 }
 
 
-export const MainTable = ({
+export const MainTable = memo(({
                               title,
                               tableId,
                               changeCellValue1,
@@ -26,14 +27,14 @@ export const MainTable = ({
                               cells
                           }: propsType) => {
 
-
+    console.log('MainTable render')
     return (
         <TableContainer
             sx={{
                 maxWidth: '913px',
                 padding: '40px 40px 40px 75px',
                 ['@media (max-width:911px)']: {
-                    padding: 0, overflowX: "inherit"
+                    padding: '40px 0 0 0', overflowX: "inherit"
                 }
             }}>
             <Table sx={{
@@ -72,4 +73,4 @@ export const MainTable = ({
             </Table>
         </TableContainer>
     );
-}
+})

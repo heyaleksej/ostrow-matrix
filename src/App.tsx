@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useCallback} from 'react';
 import './App.module.css';
 import {MainTable} from "./Tables/MainTable";
 import {AppRootStateType, RowType} from "./Bll/store";
@@ -28,10 +28,11 @@ function App() {
     ]
 
 
-    const changeCellValue1 = (id: string, tableId: string) => dispatch(update1CellAC(tableId, id))
-    const changeCellValue2 = (id: string, tableId: string) => dispatch(update2CellAC(tableId, id))
-    const changeCellValue3 = (id: string, tableId: string) => dispatch(update3CellAC(tableId, id))
-    const changeCellValue4 = (id: string, tableId: string) => dispatch(update4CellAC(tableId, id))
+    const changeCellValue1 = useCallback((id: string, tableId: string) => dispatch(update1CellAC(tableId, id)),[dispatch])
+    const changeCellValue2 = useCallback((id: string, tableId: string) => dispatch(update2CellAC(tableId, id)),[dispatch])
+    const changeCellValue3 = useCallback((id: string, tableId: string) => dispatch(update3CellAC(tableId, id)),[dispatch])
+    const changeCellValue4 = useCallback((id: string, tableId: string) => dispatch(update4CellAC(tableId, id)),[dispatch])
+
 
 
     return (
