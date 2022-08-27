@@ -1,10 +1,8 @@
 import * as React from "react";
-import {useCallback} from "react";
 import {TableStateType, TablesType} from "./App";
 import s from './Counter.module.css'
-import {Button} from "@mui/material";
-import logo from "./logo/logo-transparent-2.gif";
-import { ButtonX } from "./assest/ButtonX";
+import logo from "./assest/logo/logo-transparent-2.gif";
+import {ButtonX} from "./components/ButtonX";
 
 type propsType = {
     cells: TableStateType
@@ -12,84 +10,46 @@ type propsType = {
 }
 
 
-export const Counter = ({cells}: propsType) => {
+export const Counter = ({tables, cells}: propsType) => {
 
-
-    const sum1table = useCallback(() => {
+    const sumTableCells = (tableId: string) => {
         let i = 0;
-        let sum1 =0
-        let sum2 =0
-        let sum3 =0
-        let sum4 =0
-        while (i < cells['tableId1'].length) {
+        let sum1 = 0
+        let sum2 = 0
+        let sum3 = 0
+        let sum4 = 0
+        while (i < cells[tableId].length) {
             // @ts-ignore
-            sum1 += +cells['tableId1'][i].param1
+            sum1 += +cells[tableId][i].param1
             // @ts-ignore
-            sum2 += +cells['tableId1'][i].param2
+            sum2 += +cells[tableId][i].param2
             // @ts-ignore
-            sum3 += +cells['tableId1'][i].param3
+            sum3 += +cells[tableId][i].param3
             // @ts-ignore
-            sum4 += +cells['tableId1'][i].param4
+            sum4 += +cells[tableId][i].param4
             i++;
         }
         return sum1 + sum2 + sum3 + sum4
 
-    }, [cells])
+    }
 
-    const sum2table = useCallback(() => {
-        let i = 0;
-        let sum1 =0
-        let sum2 =0
-        let sum3 =0
-        let sum4 =0
-        while (i < cells['tableId2'].length) {
-            // @ts-ignore
-            sum1 += +cells['tableId2'][i].param1
-            // @ts-ignore
-            sum2 += +cells['tableId2'][i].param2
-            // @ts-ignore
-            sum3 += +cells['tableId2'][i].param3
-            // @ts-ignore
-            sum4 += +cells['tableId2'][i].param4
-            i++;
-        }
-        return sum1 + sum2 + sum3 + sum4
+    const sum1table = () => sumTableCells(tables[0].id)
+    const sum2table = () => sumTableCells(tables[1].id)
+    const sum3table = () => sumTableCells(tables[2].id)
 
-    }, [cells])
-
-    const sum3table = useCallback(() => {
-        let i = 0;
-        let sum1 =0
-        let sum2 =0
-        let sum3 =0
-        let sum4 =0
-        while (i < cells['tableId3'].length) {
-            // @ts-ignore
-            sum1 += +cells['tableId3'][i].param1
-            // @ts-ignore
-            sum2 += +cells['tableId3'][i].param2
-            // @ts-ignore
-            sum3 += +cells['tableId3'][i].param3
-            // @ts-ignore
-            sum4 += +cells['tableId3'][i].param4
-            i++;
-        }
-        return sum1 + sum2 + sum3 + sum4
-
-    }, [cells])
-
-
-  let result = 3 + sum1table() + sum2table() + sum3table()
-
+    const result = 3 + sum1table() + sum2table() + sum3table()
 
     return (
         <div className={s.wrapper}>
-            <img className={s.logo} src={logo}/>
+            <img className={s.logo} src={logo} alt={''}/>
             <div className={s.result}>Итоговая частота
-                для коммуникации с одним пользователем{' '}<div className={s.resultNum}>{result}</div></div>
-            <ButtonX name={'Cбросить'} onClick={()=>{window.location.reload()}}/>
+                для коммуникации с одним пользователем
+                <div className={s.resultNum}>{result}</div>
+            </div>
+            <ButtonX name={'Сбросить'} onClick={() => {
+                window.location.reload()
+            }}/>
         </div>
-
 
 
     )

@@ -1,6 +1,6 @@
 import * as React from 'react';
-import {RowType} from "./Bll/store";
-import {RowTable} from "./Tables/RowTable";
+import {RowType} from "../Bll/store";
+import {RowTable} from "./RowTable";
 import {Table, TableBody, TableContainer, TableHead, TableRow} from "@mui/material";
 import TableCell from "@mui/material/TableCell";
 
@@ -28,9 +28,14 @@ export const MainTable = ({
 
 
     return (
-        <TableContainer sx={{maxWidth: '913px', padding: '40px 40px 40px 75px', ['@media (max-width:911px)']: {
-                padding: 0, overflowX: "inherit"
-            }}}>
+        <TableContainer
+            sx={{
+                maxWidth: '913px',
+                padding: '40px 40px 40px 75px',
+                ['@media (max-width:911px)']: {
+                    padding: 0, overflowX: "inherit"
+                }
+            }}>
             <Table sx={{
                 background: 'white',
                 boxShadow: 'rgba(0, 0, 0, 0.25) 0px 28px 15px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px'
@@ -61,7 +66,7 @@ export const MainTable = ({
                                 changeCellValue2={onCellChangeHandler2}
                                 changeCellValue3={onCellChangeHandler3}
                                 changeCellValue4={onCellChangeHandler4}/>
-                    }
+                        }
                     )
                     }</TableBody>
             </Table>

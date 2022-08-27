@@ -1,10 +1,8 @@
-import React, {useState} from 'react';
+import React from 'react';
 import './App.module.css';
-import {MainTable} from "./MainTable";
+import {MainTable} from "./Tables/MainTable";
 import {AppRootStateType, RowType} from "./Bll/store";
 import {Counter} from "./Counter";
-import logo from './../src/logo/logo-transparent-2.gif'
-import s from './App.module.css'
 import {useDispatch, useSelector} from 'react-redux';
 import {update1CellAC, update2CellAC, update3CellAC, update4CellAC} from './Bll/table-reducer';
 
@@ -22,7 +20,6 @@ function App() {
     const dispatch = useDispatch()
 
     const cells = useSelector<AppRootStateType, TableStateType>(state => state.table)
-
 
     let tables = [
         {id: 'tableId1', title: "Рыночные факторы"},
