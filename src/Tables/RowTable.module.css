@@ -8,14 +8,21 @@
 
 @media (max-width: 599px) {
     .cell {
-        width: 15px;
-        margin: 0 5px 0 5px
+        width: 25px;
+        margin: 0
+    }
+}
+
+@media (max-width: 290px) {
+    .cell {
+        width: 21px;
+        margin: 0
     }
 }
 
 @media (min-width: 600px) and (max-width: 930px) {
     .cell {
-        width: 25px;
+        width: 40px;
         margin-top: auto;
         margin-bottom: auto;
     }

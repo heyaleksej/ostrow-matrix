@@ -17,33 +17,30 @@ type propsType = {
 }
 
 
-export const MainTable = memo(({
-                                   title,
-                                   tableId,
-                                   changeCellValue1,
-                                   changeCellValue2,
-                                   changeCellValue3,
-                                   changeCellValue4,
-                                   cells
-                               }: propsType) => {
+export const MainTable = memo(({title, tableId, changeCellValue1, changeCellValue2, changeCellValue3, changeCellValue4, cells}: propsType) => {
+    const subTitleStyle = {
+        ['@media (max-width:599px)']: {padding: '5px',lineHeight:'1'},
+        ['@media (min-width:600px) and (max-width: 930px)']: {padding: '40px', width: "auto",}
+    }
 
-    console.log('MainTable render')
+    const tablesBlockStyle = {width: "65%", padding: '40px 40px 40px 75px', overflowX:'inherit',
+        ['@media (max-width:599px)']: {padding: '20px 0 0 0', width: "auto"},
+        ['@media (min-width:600px) and (max-width: 930px)']: {padding: '40px', width: "auto"}
+    }
+
+    const singleTableStyle = {
+        background: 'white',
+        boxShadow:
+            'rgba(0, 0, 0, 0.25) 0px 28px 15px, ' +
+            'rgba(0, 0, 0, 0.12) 0px -12px 30px, ' +
+            'rgba(0, 0, 0, 0.12) 0px 4px 6px,' +
+            'rgba(0, 0, 0, 0.17) 0px 12px 13px, ' +
+            'rgba(0, 0, 0, 0.09) 0px -3px 5px'
+    }
+
     return (
-        <TableContainer
-            sx={{
-                width: "65%",
-                padding: '40px 40px 40px 75px',
-                ['@media (max-width:599px)']: {
-                    padding: '40px 0 0 0', width: "auto"
-                }, ['@media (min-width:600px) and (max-width: 930px)']: {
-                    padding: '40px', width: "auto",
-
-                }
-            }}>
-            <Table sx={{
-                background: 'white',
-                boxShadow: 'rgba(0, 0, 0, 0.25) 0px 28px 15px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px'
-            }}>
+        <TableContainer sx={tablesBlockStyle}>
+            <Table sx={singleTableStyle}>
                 <TableHead>
                     <TableRow>
                         <TableCell sx={{fontWeight: '300', fontSize: '24px'}} align="center" colSpan={6}>
@@ -51,9 +48,9 @@ export const MainTable = memo(({
                         </TableCell>
                     </TableRow>
                     <TableRow sx={{borderBottom: '2px solid grey'}}>
-                        <TableCell colSpan={1} align="center">Достаточна невысокая частота</TableCell>
-                        <TableCell colSpan={4} align="center">Поправка частоты</TableCell>
-                        <TableCell colSpan={1} align="center">Нужна высокая частота</TableCell>
+                        <TableCell sx={subTitleStyle} colSpan={1} align="center">Достаточна невысокая частота</TableCell>
+                        <TableCell sx={subTitleStyle} colSpan={4} align="center">Поправка частоты</TableCell>
+                        <TableCell sx={subTitleStyle} colSpan={1} align="center">Нужна высокая частота</TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>

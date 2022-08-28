@@ -34,36 +34,42 @@ export const RowTable = memo(({
         width: '45px',
         padding: '10px',
         ['@media (min-width:600px) and (max-width: 930px)']: {
-            padding: '2px',
+            padding: '9px',
             width: '15px',
-            height: '15px',
-            fontSize: '15px',
-            fontWeight: '600'
+            height: '40px',
+            fontSize: '25px',
+            fontWeight: '600',
+            lineHeight: '1'
+        },
+        ['@media (max-width:599px)']: {
+            padding: '9px',
+            height: '40px', fontSize: '21px',
+
+        },
+        ['@media (max-width:280px)']: {
+            padding: '2px',
+            height: '40px',
+
         },
 
-        ['@media (max-width:599px)']: {
-            padding: '5px', width: '20px',
-            height: '15px', fontSize: '18px'
-        }
 
 
     }
     const baseCell = {
-        border: '1px solid grey', minHeight: '30px', width: '45px', padding: '10px', ['@media (max-width:599px)']: {
-            padding: '5px', width: '20px',
-            height: '35px'
-        }, ['@media (min-width:600px) and (max-width: 930px)']: {
-            padding: '10px', width: '20px'
-        }
+        border: '1px solid grey', minHeight: '30px', width: '45px', padding: '10px',
+        ['@media (min-width:600px) and (max-width: 930px)']: {padding: '10px', width: '20px'},
+        ['@media (max-width:599px)']: {padding: '9px', height: '40px'},
+        ['@media (max-width:280px)']: {padding: '2px'}
     }
     const cellStyle1 = row.param1 === '' ? baseCell : checkedCell
     const cellStyle2 = row.param2 === '' ? baseCell : checkedCell
     const cellStyle3 = row.param3 === '' ? baseCell : checkedCell
     const cellStyle4 = row.param4 === '' ? baseCell : checkedCell
     const descStyle = {
-        padding: '20px',
-        ['@media (max-width:599px)']: {padding: '5px', fontWeight: '300'},
-        ['@media (min-width:600px) and (max-width: 930px)']: {padding: '10px', fontWeight: '400'}
+        padding: '0 20px 0 20px',
+        ['@media (min-width:600px) and (max-width: 930px)']: {padding: '10px', fontWeight: '400', height:'45px'},
+        ['@media (max-width:599px)']: {padding: '3px', fontWeight: '300', lineHeight: '1', fontSize: '0.78rem',},
+        ['@media (max-width:280px)']: {padding: '2px', height: '40px', fontSize: '0.65rem'}
     }
 
 

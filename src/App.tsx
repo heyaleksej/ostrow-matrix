@@ -9,7 +9,6 @@ import {update1CellAC, update2CellAC, update3CellAC, update4CellAC} from './Bll/
 export type TableStateType = {
     [key: string]: Array<RowType>
 }
-
 export type TablesType = {
     id: string,
     title: string
@@ -48,10 +47,8 @@ function App() {
                     cells={cells[t.id]}
                 />
             )}
-
             <Counter cells={cells} tables={tables}/>
         </>
-
     );
 }
 
