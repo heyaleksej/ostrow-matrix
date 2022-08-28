@@ -20,7 +20,7 @@ type propsType = {
 export const MainTable = memo(({title, tableId, changeCellValue1, changeCellValue2, changeCellValue3, changeCellValue4, cells}: propsType) => {
     const subTitleStyle = {
         ['@media (max-width:599px)']: {padding: '5px',lineHeight:'1'},
-        ['@media (min-width:600px) and (max-width: 930px)']: {padding: '40px', width: "auto",}
+        ['@media (min-width:600px) and (max-width: 930px)']: {padding: '10px', fontWeight:'300', fontSize: '18px'}
     }
 
     const tablesBlockStyle = {width: "65%", padding: '40px 40px 40px 75px', overflowX:'inherit',
