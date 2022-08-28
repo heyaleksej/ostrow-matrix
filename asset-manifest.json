@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/ostrow-matrix/static/css/main.e0febb4e.css",
-    "main.js": "/ostrow-matrix/static/js/main.67ff23ac.js",
+    "main.js": "/ostrow-matrix/static/js/main.9d51dbf3.js",
     "static/js/787.4cfa7b7d.chunk.js": "/ostrow-matrix/static/js/787.4cfa7b7d.chunk.js",
     "static/media/logo-transparent-2.gif": "/ostrow-matrix/static/media/logo-transparent-2.82e838fdce5b884291b8.gif",
     "static/media/1.png": "/ostrow-matrix/static/media/1.7615d23a946758a1c2ac.png",
     "index.html": "/ostrow-matrix/index.html",
     "main.e0febb4e.css.map": "/ostrow-matrix/static/css/main.e0febb4e.css.map",
-    "main.67ff23ac.js.map": "/ostrow-matrix/static/js/main.67ff23ac.js.map",
+    "main.9d51dbf3.js.map": "/ostrow-matrix/static/js/main.9d51dbf3.js.map",
     "787.4cfa7b7d.chunk.js.map": "/ostrow-matrix/static/js/787.4cfa7b7d.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e0febb4e.css",
-    "static/js/main.67ff23ac.js"
+    "static/js/main.9d51dbf3.js"
   ]
 }
